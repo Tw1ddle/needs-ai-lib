@@ -1,7 +1,5 @@
 package needs.ai;
 
-using util.FloatExtensions;
-
 // Needs are measures of the strength of the motive to react to problems
 // Like Sims "commodities", they express a class of need e.g. to be in the gym, to not go hungry
 class Need {
@@ -30,7 +28,7 @@ class Need {
 	}
 	
 	private function set_value(v:Float):Float {
-		return this.value = v.clamp(0, 1);
+		return this.value = (v < 0 ? 0 : v > 1 ? 1 : v);
 	}
 	
 	private inline function linear(v:Float):Float {

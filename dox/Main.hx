@@ -1,5 +1,7 @@
 // This is solely for generating documentation for Needs AI using dox
 
-// TODO
+import needs.ai.Action;
+import needs.ai.Brain;
+import needs.ai.Need;
 
 class Main {}

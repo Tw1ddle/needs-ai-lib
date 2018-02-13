@@ -1,11 +1,8 @@
 package needs.ai;
 
 import haxe.ds.IntMap;
-import msignal.Signal;
 
-import World;
-
-using util.ArrayExtensions;
+using needs.util.ArrayExtensions;
 
 // Represents an AI
 class Brain {
@@ -14,7 +11,7 @@ class Brain {
 	public var needTraits(default, null):IntMap<Float->Float>; // Motive traits affect the way some motives change over time e.g. slobs get hungrier faster
 	public var actionTraits(default, null):IntMap<Float->Float>; // Action traits affect the way actions are calculated e.g. override or modify effects
 	
-	public var signal_selectedAction:Signal1<Action> = new Signal1<Action>();
+	public var onActionSelected:Action->Void = null;
 	
 	public inline function new(world:Dynamic, needs:Array<Need>) {
 		this.world = world;
@@ -34,7 +31,8 @@ class Brain {
 			need.update(dt);
 		}
 		
-		var need = switch(world.agent.aiMode) {
+		var aiMode:String = world.agent.aiMode;
+		var need = switch(aiMode) {
 			case Strategy.HIGHEST_NEEDS:
 				getGreatestNeed();
 			case Strategy.TRUE_RANDOM:
@@ -47,7 +45,10 @@ class Brain {
 		
 		if (need != null) {
 			var actions = findActions(need);
-			signal_selectedAction.dispatch(actions.randomElement());
+			
+			if(onActionSelected != null) {
+				onActionSelected(actions.randomElement());
+			}
 		}
 	}
 	
@@ -72,7 +73,6 @@ class Brain {
 	}
 	
 	private inline function findActions(need:Need):Array<Action> {
-		Sure.sure(world.queryContextForActions != null);
 		return world.queryContextForActions(need);
 	}
 }

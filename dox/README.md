@@ -1,8 +1,8 @@
 # Needs AI Dox
 
-Documentation generation for [Needs AI](http://tw1ddle.github.io/NeedsAI/).
+Documentation generation for [Needs AI](http://tw1ddle.github.io/needs-ai/).
 
-This project generates the Markov Namegen documentation using [dox](https://github.com/HaxeFoundation/dox), the Haxe documentation generator.
+This project generates the Needs AI documentation using [dox](https://github.com/HaxeFoundation/dox), the Haxe documentation generator.
 
 ## Usage
 
