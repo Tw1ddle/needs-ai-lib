@@ -73,7 +73,7 @@
 			<p ::cond api.isDefined("version")::>This documentation is generated for version ::api.getValue('version')::</p>
 			<p>
 			<a href="http://tw1ddle.github.io/needs-ai/index.html" title="Needs AI Demo" class="hf-link">Needs AI Demo</a> |&nbsp;
-			<a href="https://github.com/Tw1ddle/needs-ai" title="Needs AI on Github">Contribute to Needs AI</a> |&nbsp;
+			<a href="https://github.com/Tw1ddle/needs-ai-lib" title="Needs AI on Github">Contribute to Needs AI</a> |&nbsp;
 			<a href="https://twitter.com/Sam_Twidale" title="Contact Sam">Contact Sam</a>
 			</p>
 		</div>
