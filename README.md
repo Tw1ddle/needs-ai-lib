@@ -1,6 +1,9 @@
-# Needs AI
+[![Project logo](https://github.com/Tw1ddle/needs-ai-lib/blob/master/screenshots/logo.png?raw=true "Needs AI library project logo")](https://github.com/Tw1ddle/needs-ai-lib/)
 
-Needs AI is a utility-based AI written in Haxe. Try the [web demo](http://tw1ddle.github.io/needs-ai/index.html) here.
+[![Travis Build Status](https://img.shields.io/travis/Tw1ddle/needs-ai-lib.svg?style=flat-square)](https://travis-ci.org/Tw1ddle/needs-ai-lib)
+[![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](https://github.com/Tw1ddle/needs-ai-lib/blob/master/LICENSE)
+
+Needs AI is a utility-based AI written in Haxe. Run the [web demo](http://tw1ddle.github.io/needs-ai/index.html) here.
 
 Utility-based AI is useful for games where semi-autonomous agents have to satisfy several competing needs, like The Sims.
 

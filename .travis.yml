@@ -1,0 +1,32 @@
+sudo: required
+dist: trusty
+
+language: haxe
+
+# Add encrypted API key
+env:
+  global:
+    - secure: B9Gs/0ZEjtgRs9DPl6QW0YuzotO6AQWwGc/AAOAD/nLt43qENsoVPYjbFy1MOrn+R4ezBglL4yl4us1CU9xHvJmDkV0iLeyJ/EE1jsIPGkigWS+DzgN21JIy77TQ/e+9U+rd0Ftlb9lg1HP6ZvH8cLjbFCEJZyBbth4LEyXV3g+FasUYLOqE6Fkemt2ZENVi6narN4auvxn+VFYVEHqqRZTyX+bqM/JjbdTA7uQaLoyxkDvkui6eXtneE9W4l8N8SPorbx+hN3kj8UjbbR1LIvPSuEB7fBcTKhH/JpI9c8zailvAIybylImzrj1t+kd9zzTUyrA0ddEkxB6UMlev1wbks4g+M13FpeF4PR0S8RB9Hq04VbJ95dd7G9+8ha5XCmm4AjpIj8PU54RJl6z0Imq0UY6sCoZJz4CeQ2kGWdUaYQCiPASJRueHZfJ07jE4b41E5lB4WUG7yM+DCMMdx7J7Z0Qzrrw7yfckyqTB2y4v3tTmbZ6VXxe5z+9DN3at2kbCv4XLUs06aCzEUWs9x/avWzdR4ocv9IpfiLeMYLiq2WglVa6jRwvH/TziMK6QMte+bBkfLFzEBTFPCCszVyp4fRdxytCM3IBeV4p/e/po8j3H24trfiX7rwaXRE0rVCxl1p3Oa57cHLhEdG4jONQLiJfEqtvWTOOnxk3hW4k=
+
+os:
+  - linux
+
+# Blacklist
+branches:
+  only:
+    - master
+
+# Build the docs
+script:
+  - cd dox
+  - haxelib install dox
+  - haxelib run dox -i types.xml -theme ./themes/samcodes --title "Needs AI API" -D version 1.0.0 --include "(needs)" -o
+
+# Deploy the generated documentation using Travis builtin GitHub Pages support
+deploy:
+  provider: pages
+  skip_cleanup: true
+  local_dir: $TRAVIS_BUILD_DIR/dox/generated_docs/
+  github_token: $GITHUB_API_KEY
+  on:
+    branch: master
