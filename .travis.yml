@@ -18,15 +18,17 @@ branches:
 
 # Build the docs
 script:
-  - cd dox
+  - pushd dox
   - haxelib install dox
   - haxe build.hxml
   - haxelib run dox -i $TRAVIS_BUILD_DIR/dox/types.xml -theme $TRAVIS_BUILD_DIR/dox/themes/samcodes --title "Needs AI API" -D version 1.0.0 --include "(needs)" -o
+  - popd
 
 # Deploy the generated documentation using Travis builtin GitHub Pages support
 deploy:
   provider: pages
   skip_cleanup: true
+  local_dir: dox/generated_docs
   github_token: $GITHUB_API_KEY
   on:
     branch: master
