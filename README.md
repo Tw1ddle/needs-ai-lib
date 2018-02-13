@@ -3,17 +3,11 @@
 [![Travis Build Status](https://img.shields.io/travis/Tw1ddle/needs-ai-lib.svg?style=flat-square)](https://travis-ci.org/Tw1ddle/needs-ai-lib)
 [![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](https://github.com/Tw1ddle/needs-ai-lib/blob/master/LICENSE)
 
-Needs AI is a utility-based AI written in Haxe. Run the [web demo](http://tw1ddle.github.io/needs-ai/index.html) here.
+Needs AI is a utility-based AI written in Haxe. Run the web demo [here](http://tw1ddle.github.io/needs-ai/index.html).
 
-Utility-based AI is useful for games where semi-autonomous agents have to satisfy several competing needs, like The Sims.
-
-## How It Works
+Utility-based AI is useful in games where agents have to satisfy several competing needs - like in The Sims.
 
 An agent is modelled as a set of needs, a set of actions, and a strategy that executes actions to meet the needs. Agents continually evaluate the relative urgency of their needs.
-
-Threshold values are used to make the agent repeat actions to satisfy a need, when a single action might not be sufficient.
-
-Modifiers are used to change the effectiveness of needs or actions, to model "personality" traits.
 
 ## Notes
 * This haxelib supports all Haxe targets.
