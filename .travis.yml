@@ -20,6 +20,7 @@ branches:
 script:
   - cd dox
   - haxelib install dox
+  - haxe build.hxml
   - haxelib run dox -i types.xml -theme ./themes/samcodes --title "Needs AI API" -D version 1.0.0 --include "(needs)" -o
 
 # Deploy the generated documentation using Travis builtin GitHub Pages support
