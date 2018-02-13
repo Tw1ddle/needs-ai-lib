@@ -1,0 +1,11 @@
+{
+	"name": "needs-ai",
+	"url": "http://samcodes.co.uk/code/",
+	"license": "MIT",
+	"tags": ["ai","cross","haxe","utility","tool"],
+	"description": "Utility-based artificial intelligence library",
+	"version": "1.0.0",
+	"releasenote": "Initial releaase",
+	"contributors": ["samcodes"],
+	"dependencies": {}
+}
