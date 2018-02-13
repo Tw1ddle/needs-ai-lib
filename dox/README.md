@@ -1,6 +1,6 @@
 # Needs AI Dox
 
-Documentation generation for [Needs AI](http://tw1ddle.github.io/needs-ai/).
+Documentation generation for [Needs AI](https://github.com/Tw1ddle/needs-ai-lib).
 
 This project generates the Needs AI documentation using [dox](https://github.com/HaxeFoundation/dox), the Haxe documentation generator.
 
