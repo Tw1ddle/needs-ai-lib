@@ -37,7 +37,7 @@
 <div class="navbar navbar-fixed-top ">
 	<div class="navbar-inner">
 		<a class="samcodes-logo" href="https://github.com/Tw1ddle/needs-ai"><img alt="Needs AI" height="42" src="::api.config.rootPath::needs-ai-logo.png" width="307" /></a>
-		<a class="api-link" href="/needs-ai/needs/ai/index.html">API</a>
+		<a class="api-link" href="/needs-ai-lib/index.html">API</a>
 	</div>
 </div>
 <div class="container main-content">
