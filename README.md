@@ -9,6 +9,21 @@ Utility-based AI is useful in games where agents have to satisfy several competi
 
 An agent is modelled as a set of needs, a set of actions, and a strategy that selects actions to perform to meet the needs. Agents continually evaluate how urgent their needs are.
 
+## References
+Some links that provide background about utility-based AI:
+
+* [https://dinodini.wordpress.com/2010/04/05/normalized-tunable-sigmoid-functions/](https://dinodini.wordpress.com/2010/04/05/normalized-tunable-sigmoid-functions/)
+* [http://www.gdcvault.com/play/1012410/Improving-AI-Decision-Modeling-Through](http://www.gdcvault.com/play/1012410/Improving-AI-Decision-Modeling-Through)
+* [http://www.gdcvault.com/play/1021848/Building-a-Better-Centaur-AI](http://www.gdcvault.com/play/1021848/Building-a-Better-Centaur-AI)
+* [http://www.gdcvault.com/play/1018040/Architecture-Tricks-Managing-Behaviors-in](http://www.gdcvault.com/play/1018040/Architecture-Tricks-Managing-Behaviors-in)
+* [http://www.tenpn.com/df-v1.3/tutorial.html](http://www.tenpn.com/df-v1.3/tutorial.html)
+* [http://www.gameaipro.com/GameAIPro2/GameAIPro2_Chapter03_Dual-Utility_Reasoning.pdf](http://www.gameaipro.com/GameAIPro2/GameAIPro2_Chapter03_Dual-Utility_Reasoning.pdf)
+* [https://www.amazon.co.uk/Behavioral-Mathematics-Game-Dave-Mark/dp/1584506849](https://www.amazon.co.uk/Behavioral-Mathematics-Game-Dave-Mark/dp/1584506849)
+* [https://www.gamedev.net/forums/topic/686840-help-me-understand-utility-ai/](https://www.gamedev.net/forums/topic/686840-help-me-understand-utility-ai/)
+* [http://intrinsicalgorithm.com/IAonAI/2009/10/aiide-2009-ai-challenges-in-sims-3-richard-evans/](http://intrinsicalgorithm.com/IAonAI/2009/10/aiide-2009-ai-challenges-in-sims-3-richard-evans/)
+* [https://alastaira.wordpress.com/2013/01/25/at-a-glance-functions-for-modelling-utility-based-game-ai/](https://alastaira.wordpress.com/2013/01/25/at-a-glance-functions-for-modelling-utility-based-game-ai/)
+* [http://www.gameaipro.com/GameAIPro/GameAIPro_Chapter09_An_Introduction_to_Utility_Theory.pdf](http://www.gameaipro.com/GameAIPro/GameAIPro_Chapter09_An_Introduction_to_Utility_Theory.pdf)
+
 ## Notes
 * This haxelib supports all Haxe targets.
 * If you have any questions or suggestions then [get in touch](https://twitter.com/Sam_Twidale) or open an issue.
