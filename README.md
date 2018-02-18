@@ -3,11 +3,13 @@
 [![Travis Build Status](https://img.shields.io/travis/Tw1ddle/needs-ai-lib.svg?style=flat-square)](https://travis-ci.org/Tw1ddle/needs-ai-lib)
 [![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](https://github.com/Tw1ddle/needs-ai-lib/blob/master/LICENSE)
 
+WORK IN PROGRESS
+
 Needs AI is a utility-based AI library written in Haxe. Run the web demo [here](http://tw1ddle.github.io/needs-ai/index.html), read the documentation [here](http://tw1ddle.github.io/needs-ai-lib/index.html).
 
 Utility-based AI is useful in games where agents have to satisfy several competing needs - like in The Sims.
 
-An agent is modelled as a set of needs, a set of actions, and a strategy that selects actions to perform to meet the needs. Agents continually evaluate how urgent their needs are.
+An agent is modelled as a set of needs, a set of actions, and a strategy that selects actions to perform to meet the needs.
 
 ## References
 Some links that provide background about utility-based AI:
@@ -23,6 +25,10 @@ Some links that provide background about utility-based AI:
 * [http://intrinsicalgorithm.com/IAonAI/2009/10/aiide-2009-ai-challenges-in-sims-3-richard-evans/](http://intrinsicalgorithm.com/IAonAI/2009/10/aiide-2009-ai-challenges-in-sims-3-richard-evans/)
 * [https://alastaira.wordpress.com/2013/01/25/at-a-glance-functions-for-modelling-utility-based-game-ai/](https://alastaira.wordpress.com/2013/01/25/at-a-glance-functions-for-modelling-utility-based-game-ai/)
 * [http://www.gameaipro.com/GameAIPro/GameAIPro_Chapter09_An_Introduction_to_Utility_Theory.pdf](http://www.gameaipro.com/GameAIPro/GameAIPro_Chapter09_An_Introduction_to_Utility_Theory.pdf)
+* [https://www.youtube.com/watch?v=IyHG-EGuCWk](https://www.youtube.com/watch?v=IyHG-EGuCWk)
+* [https://github.com/apoch/curvature](https://github.com/apoch/curvature)
+* [https://github.com/prime31/Nez/tree/master/Nez.Portable/AI](https://github.com/prime31/Nez/tree/master/Nez.Portable/AI)
+* [https://www.youtube.com/watch?v=IyHG-EGuCWk](https://www.youtube.com/watch?v=IyHG-EGuCWk)
 
 ## Notes
 * This haxelib supports all Haxe targets.
