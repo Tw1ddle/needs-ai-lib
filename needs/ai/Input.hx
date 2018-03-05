@@ -1,7 +1,7 @@
 package needs.ai;
 
-class Input {
-	public function new() {
-		
-	}
+import needs.curves.Curve;
+
+interface Input {
+	function evaluate(curve:Curve):Float;
 }
