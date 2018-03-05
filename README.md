@@ -5,7 +5,7 @@
 
 WORK IN PROGRESS
 
-Needs AI is a utility-based AI library written in Haxe. Run the web demo [here](http://tw1ddle.github.io/needs-ai/index.html), read the documentation [here](http://tw1ddle.github.io/needs-ai-lib/index.html).
+Needs AI is a utility-based AI library written in Haxe. Read the documentation [here](http://tw1ddle.github.io/needs-ai-lib/index.html).
 
 Utility-based AI is useful in games where agents have to satisfy several competing needs - like in The Sims.
 
@@ -29,6 +29,8 @@ Some links that provide background about utility-based AI:
 * [https://github.com/apoch/curvature](https://github.com/apoch/curvature)
 * [https://github.com/prime31/Nez/tree/master/Nez.Portable/AI](https://github.com/prime31/Nez/tree/master/Nez.Portable/AI)
 * [https://www.youtube.com/watch?v=IyHG-EGuCWk](https://www.youtube.com/watch?v=IyHG-EGuCWk)
+* [https://github.com/apoch/curvature/wiki/Utility-Theory-Crash-Course](https://github.com/apoch/curvature/wiki/Utility-Theory-Crash-Course)
+
 
 ## Notes
 * This haxelib supports all Haxe targets.

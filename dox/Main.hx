@@ -1,6 +1,6 @@
 // This is solely for generating documentation for Needs AI using dox
 
-import needs.ai.Action;
+import lib.needs-ai-lib.needs.ai.Needs;
 import needs.ai.Agent;
 import needs.ai.Brain;
 import needs.ai.Effect;
