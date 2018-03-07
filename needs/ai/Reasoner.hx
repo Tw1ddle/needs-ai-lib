@@ -1,17 +1,17 @@
 package needs.ai;
 
 class Reasoner {
-	private var intentSets:Array<IntentSet>; // TODO sort by weights/queue
+	private var intentSets:Array<OptionBucket>; // TODO sort by weights/queue
 	
 	// TODO record last chosen intent?
 	
-	public var onIntentChanged:Reasoner->Intent->Intent;
+	public var onIntentChanged:Reasoner->Option->Option;
 	
 	public function new() {
 		
 	}
 	
-	public function step(dt:Float):Intent {
+	public function update():Option {
 		for (set in intentSets) {
 			set.score();
 		}

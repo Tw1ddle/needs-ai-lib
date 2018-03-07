@@ -1,4 +1,4 @@
-package needs.ai;
+package needs.inputs;
 
 import needs.curves.Curve;
 
