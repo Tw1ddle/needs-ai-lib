@@ -1,5 +1,7 @@
 package needs.ai;
 
+import needs.util.Signal;
+
 // TODO tag bag, for negotiating "bonus" utility for some actions e.g. for two specific npcs needing to talk to each other
 // TODO just used as token passing. perhaps something a "smart" environment does to the NPCs, not the NPCs themselves
 
@@ -36,14 +38,16 @@ class Brain {
 	/**
 	   Callback triggered when a reasoner changes the intent that it has selected.
 	**/
-	public var onIntentChanged:Reasoner->Option->Option;
+	public var onIntentChanged(default, null):Signal<Reasoner->Option->Option>;
 	
 	/**
 	   @param	reasoners The collection of reasoners that the brain starts with.
 	**/
 	public function new(reasoners:Array<Reasoner>) {
+		onIntentChanged = new Signal<Reasoner->Option->Option>();
+		
 		for (reasoner in reasoners) {
-			reasoner.onIntentChanged = onIntentChanged;
+			addReasoner(reasoner);
 		}
 	}
 	
@@ -56,13 +60,21 @@ class Brain {
 		}
 	}
 	
+	/**
+	   Adds a reasoner to the brain.
+	   @param	reasoner The reasoner to add.
+	**/
 	public function addReasoner(reasoner:Reasoner):Void {
-		// TODO
 		reasoners.push(reasoner);
+		reasoner.onIntentChanged = onIntentChanged;
 	}
 	
+	/**
+	   Removes a reasoner from the brain, if it is present in the brain.
+	   @param	reasoner The reasoner to remove.
+	**/
 	public function removeReasoner(reasoner:Reasoner):Void {
-		// TODO
 		reasoners.remove(reasoner);
+		reasoner.onIntentChanged = null;
 	}
 }

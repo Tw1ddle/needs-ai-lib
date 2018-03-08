@@ -5,7 +5,7 @@ import needs.inputs.Input;
 
 /**
    The Consideration class transforms an observation about the game world your agent cares about into a utility score.
-   A consideration produces the utility score by evaluating an Input - an aspect of the world the agent is interested in - against a response curve.
+   A consideration produces the utility score by evaluating (or appraising) an Input - an aspect of the world the agent is interested in - against a response curve.
    This result is typically a floating point value, which is later used for calculating the overall utility of an Option available to the agent.
 **/
 class Consideration {
