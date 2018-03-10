@@ -61,7 +61,7 @@ class Brain {
 	**/
 	public function update():Void {
 		for (reasoner in reasoners) {
-			reasoner.update();
+			reasoner.select();
 		}
 	}
 	

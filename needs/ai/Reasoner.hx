@@ -29,15 +29,20 @@ class Reasoner {
 	public var onActionChanged:Signal3<Reasoner, Action, Action>;
 	
 	/**
-	   Returns the highest utility action in the set by evaluating the actions using an action set scoring strategy.
-	   @return The highest utility action in the set.
+	   Returns the most appropriate action in the set by evaluating the actions using an action set scoring strategy.
+	   @return The the most appropriate action in the set.
 	**/
 	public var select:Void->Action;
 	
+	/**
+	   @param	name The human-readable name of the reasoner.
+	   @param	actionSets The collection of action sets that the reasoner starts with.
+	**/
 	public function new(name:String, actionSets:Array<ActionSet>) {
 		this.name = name;
 		this.actionSets = actionSets;
 		lastAction = null;
 		onActionChanged = new Signal3<Reasoner, Action, Action>();
+		select = ReasonerActionPickingStrategies.highestScoringAction.bind(this);
 	}
 }

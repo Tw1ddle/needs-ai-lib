@@ -1,7 +1,7 @@
 package needs.ai;
 
-import needs.curves.Curve;
 import needs.inputs.Input;
+import needs.responses.Response;
 
 /**
    The Consideration class transforms an observation about the game world that your agent cares about into a utility score.
@@ -22,26 +22,26 @@ class Consideration {
 	public var input:Input;
 	
 	/**
-	   The response curve that the value of the input is evaluated with.
+	   The response function that the value of the input is evaluated with.
 	**/
-	public var curve:Curve;
+	public var response:Response;
 	
 	/**
 	   @param	name The human-readable name for the consideration.
 	   @param	input The input.
 	   @param	curve The response curve.
 	**/
-	public function new(name:String, input:Input, curve:Curve) {
+	public function new(name:String, input:Input, response:Response) {
 		this.name = name;
 		this.input = input;
-		this.curve = curve;
+		this.response = response;
 	}
 	
 	/**
-	   Calculates a utility score/floating point value for the consideration by evaluating the Input against a response curve.
+	   Calculates a utility score/floating point value for the consideration by evaluating the Input against a response function.
 	   @return The utility score/floating point value for the consideration, usually a value in the range 0-1.
 	**/
 	public function score():Float {
-		return input.evaluate(curve);
+		return input.evaluate(response);
 	}
 }

@@ -7,6 +7,8 @@ package needs.ai;
 class ActionScoringStrategies {
 	/**
 	   Determines the utility of an Action by multiplying the scores of the considerations.
+	   Note that this exhibits odd behavior because actions with more considerations will tend to have lower scores
+	   due to normalized multiplication e.g. (0.9 * 0.9 is less than 0.9 * 0.9 * 0.9).
 	   @param	action The action whose utility will be determined.
 	   @return	The utility of the action.
 	**/
@@ -17,7 +19,6 @@ class ActionScoringStrategies {
 			return 0.0;
 		}
 
-		// TODO add bias to minimize the progressive penalty of many normalized consideration scores
 		var score:Float = 1.0;
 		for (consideration in considerations) {
 			score *= consideration.score();

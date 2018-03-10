@@ -19,18 +19,18 @@ class ActionSet {
 	public var actions(default, null):Array<Action>;
 	
 	/**
+	   Returns the most appropriate action in the set by evaluating the actions using an action set scoring strategy.
+	   @return The most appropriate action in the set.
+	**/
+	public var select:Void->Action;
+	
+	/**
 	   @param	name The human-readable name of the action set.
 	   @param	actions The collection of actions that the action set starts with.
 	**/
 	public function new(name:String, actions:Array<Action>) {
 		this.name = name;
 		this.actions = actions;
-		this.score = ActionPickingStrategies.highestScoringAction.bind(this);
+		this.select = ActionPickingStrategies.highestScoringAction.bind(this);
 	}
-	
-	/**
-	   Returns the highest utility action in the set by evaluating the actions using an action set scoring strategy.
-	   @return The highest utility action in the set.
-	**/
-	public var score:Void->Action;
 }

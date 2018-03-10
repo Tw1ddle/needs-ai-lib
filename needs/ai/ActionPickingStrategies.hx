@@ -1,7 +1,7 @@
 package needs.ai;
 
 /**
-   The ActionPickingStrategies class contains boilerplate methods for choosing the best action from a ActionSet.
+   The ActionPickingStrategies class contains boilerplate methods for choosing the most appropriate action from a ActionSet.
 **/
 class ActionPickingStrategies {
 	/**

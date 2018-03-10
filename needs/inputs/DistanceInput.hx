@@ -1,6 +1,6 @@
 package needs.inputs;
 
-import needs.curves.Curve;
+import lib.needs-ai-lib.needs.response.Curve;
 
 // TODO add parameters for computing utility from generic distance measures for two generic objects
 // TODO will this need macros or can haxe generics do it?

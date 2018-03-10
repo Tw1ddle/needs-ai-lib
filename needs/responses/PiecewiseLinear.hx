@@ -1,4 +1,4 @@
-package needs.curves;
+package needs.responses;
 
 class PiecewiseLinear {
 }
