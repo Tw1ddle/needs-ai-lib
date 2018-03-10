@@ -1,5 +1,8 @@
 package needs.util;
 
+/**
+   Math-related utility functions.
+**/
 class MathUtil {
 	/**
 	   Clamps a value within the bounds of the min and max values.

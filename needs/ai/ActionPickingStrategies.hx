@@ -8,9 +8,9 @@ class ActionPickingStrategies {
 	   Determines the most appropriate Action from a set of actions by picking the action with the highest utility score.
 	   Returns null if no actions are in the set, or if the only available actions have a negative score.
 	   @param	actionSet The set of actions to choose the most appropriate action from.
-	   @return	The action with the highest utility score.
+	   @return	The action with the highest utility score and its score.
 	**/
-	public static function highestScoringAction(actionSet:ActionSet):Action {
+	public static function highestScoringAction(actionSet:ActionSet):ActionScorePair {
 		var actions:Array<Action> = actionSet.actions;
 		
 		var maxScore:Float = 0;
@@ -24,6 +24,6 @@ class ActionPickingStrategies {
 			}
 			i++;
 		}
-		return action;
+		return { action: action, score: maxScore };
 	}
 }

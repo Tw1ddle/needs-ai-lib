@@ -1,6 +1,6 @@
 package needs.ai;
 
-import needs.ai.Action;
+import needs.ai.ActionScorePair;
 
 /**
    The ActionSet represents a set of Actions, each of which an agent has the option of attempting to perform within the game world.
@@ -20,9 +20,9 @@ class ActionSet {
 	
 	/**
 	   Returns the most appropriate action in the set by evaluating the actions using an action set scoring strategy.
-	   @return The most appropriate action in the set.
+	   @return The most appropriate action in the set and its score value.
 	**/
-	public var select:Void->Action;
+	public var select:Void->ActionScorePair;
 	
 	/**
 	   @param	name The human-readable name of the action set.
