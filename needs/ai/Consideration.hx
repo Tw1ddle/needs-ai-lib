@@ -4,9 +4,9 @@ import needs.curves.Curve;
 import needs.inputs.Input;
 
 /**
-   The Consideration class transforms an observation about the game world your agent cares about into a utility score.
+   The Consideration class transforms an observation about the game world that your agent cares about into a utility score.
    A consideration produces the utility score by evaluating (or appraising) an Input - an aspect of the world the agent is interested in - against a response curve.
-   This result is typically a floating point value, which is later used for calculating the overall utility of an Option available to the agent.
+   This result is typically a floating point value, which is later used for calculating the overall utility of an Action available to the agent.
 **/
 class Consideration {
 	/**
@@ -14,11 +14,13 @@ class Consideration {
 	   For an NPC-eating werewolf hiding behind a park bench, considerations for an Option like "Eat NPC" could have names like "Hunger", "Crowdedness", "My Health" etc.
 	**/
 	public var name(default, null):String;
+	
 	/**
 	   The aspect of the world that the AI agent is interested in with respect to this consideration.
 	   If the consideration is "fear of wolves", the input might evaluate to "number of wolves nearby, normalized in range 0-1".
 	**/
 	public var input:Input;
+	
 	/**
 	   The response curve that the value of the input is evaluated with.
 	**/
