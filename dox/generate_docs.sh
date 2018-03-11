@@ -19,4 +19,4 @@ haxelib run HaxeUmlGen dot types.xml
 
 # Copy the generated UML images into the generated_docs folder so they are deployed along with the other dox
 mkdir generated_docs/uml
-mv -iv -- *.{png,jpg} generated_docs/uml
+mv -iv -- *.{png} generated_docs/uml
