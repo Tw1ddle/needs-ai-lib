@@ -14,9 +14,9 @@ haxe build.hxml
 # Generate the documentation.
 haxelib run dox -i types.xml -theme ./themes/samcodes --title "Needs AI API" -D version 1.0.0 --include "(needs)" -o generated_docs
 
-# Generate UML diagrams using HaxeGenUml
-haxelib run haxeumlgen dot types.xml
+# Generate UML diagrams using HaxeUmlGen
+haxelib run HaxeUmlGen dot types.xml
 
 # Copy the generated UML images into the generated_docs folder so they are deployed along with the other dox
 mkdir generated_docs/uml
-mv *.png generated_docs/uml
+mv -iv -- *.{png,jpg} generated_docs/uml
