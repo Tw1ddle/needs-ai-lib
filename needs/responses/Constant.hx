@@ -12,10 +12,10 @@ class Constant {
 	   @return The constant.
 	**/
 	public static function make(c:Float):Response {
-		return response.bind(c);
+		return response(c);
 	}
 	
 	private static inline function response(c:Float):Float {
-		return MathUtil.clamp(c, 0, 1);
+		return MathUtil.clamp(c);
 	}
 }
