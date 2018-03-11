@@ -11,6 +11,11 @@ env:
 os:
   - linux
 
+addons:
+  apt:
+    packages:
+      - graphviz
+
 # Blacklist
 branches:
   only:
