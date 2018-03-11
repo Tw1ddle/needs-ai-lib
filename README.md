@@ -16,8 +16,9 @@ producing a normalized utility score for each action that each agent. Sets of si
 
 # Usage
 See the [demo code](https://github.com/Tw1ddle/needs-ai) for a usage example. The overall design is as follows: agents take cues from their ''Brain''s, whose ''Reasoners''
-evaluate their potential ''ActionSets'', in order to choose a suitable ''Action'' for their current situation by weighing up the agent's particular ''Considerations'' about the
-state of the game world.
+evaluate their ''ActionSets'', in order to select a suitable ''Action'' for the current situation, by weighing up ''Considerations'' based on ''Inputs'' that reflect the state of the game world.
+
+![Class diagram of Needs AI package](https://tw1ddle.github.io/needs-ai-lib/uml/needs.ai.png)
 
 ## References
 Some links that provide background about utility-based AI:
