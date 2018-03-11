@@ -43,12 +43,12 @@
 
 <h3>Class Diagrams</h3>
 
-<img src="uml/needs.ai.png">
-<br>
-<img src="uml/needs.responses.png">
-<br>
-<img src="uml/needs.inputs.png">
-<br>
+<img src="uml/needs.ai.png" />
+<br/>
+<img src="uml/needs.responses.png" />
+<br/>
+<img src="uml/needs.inputs.png" />
+<br/>
 
 ::end::
 
