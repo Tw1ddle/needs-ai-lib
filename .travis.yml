@@ -20,8 +20,9 @@ branches:
 script:
   - pushd dox
   - haxelib install dox
-  - haxe build.hxml
-  - haxelib run dox -i $TRAVIS_BUILD_DIR/dox/types.xml -theme $TRAVIS_BUILD_DIR/dox/themes/samcodes --title "Needs AI API" -D version 1.0.0 --include "(needs)" -o generated_docs
+  - haxelib install haxeumlgen
+  - chmod +x generate_docs.sh
+  - ./generate_docs.sh
   - popd
 
 # Deploy the generated documentation using Travis builtin GitHub Pages support

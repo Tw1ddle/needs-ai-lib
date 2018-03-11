@@ -1,4 +1,4 @@
-// This is solely for generating documentation for Needs AI using dox
+// This is solely for generating documentation for Needs AI using dox and HaxeUmlGen
 
 import needs.ai.Action;
 import needs.ai.ActionPickingStrategies;
@@ -12,7 +12,6 @@ import needs.ai.ReasonerActionPickingStrategies;
 import needs.ai.WatchedBrain;
 import needs.inputs.Input;
 import needs.inputs.DistanceInput;
-import needs.responses.Constant;
 import needs.responses.Linear;
 import needs.responses.Logistic;
 import needs.responses.Logit;
