@@ -6,7 +6,12 @@ import needs.responses.Response;
    Interface for an Input. An Input represents an aspect of the game world the agent is interested in.
    An Input is evaluated against a response curve to produce the utility score for a consideration.
 **/
-interface Input {
+interface Input<InputIdType> {
+	/**
+	   Id for this input.
+	**/
+	public var id(default, null):InputIdType;
+	
 	/**
 	   Evaluates (appraises) an aspect of the game world against a response function, producing a utility score. Typically you will normalize this value into the range 0-1.
 	   For example, "BossMonsterHealth" could have a range of "0 to MaxBossHealth", which you might normalize to 0-1 like "var value:Float = clamp(CurrentBossHealth/MaxBossHealth, 0, 1)".

@@ -8,7 +8,7 @@ import needs.responses.Response;
    A consideration produces the utility score by evaluating (or appraising) an Input - an aspect of the world the agent is interested in - against a response curve.
    This result is typically a floating point value, which is later used for calculating the overall utility of an Action available to the agent.
 **/
-class Consideration<ConsiderationIdType> {
+class Consideration<ConsiderationIdType, InputIdType> {
 	/**
 	   Id for this consideration.
 	**/
@@ -24,7 +24,7 @@ class Consideration<ConsiderationIdType> {
 	   The aspect of the world that the AI agent is interested in with respect to this consideration.
 	   If the consideration is "fear of wolves", the input might evaluate to "number of wolves nearby, normalized in range 0-1".
 	**/
-	public var input:Input;
+	public var input:Input<InputIdType>;
 	
 	/**
 	   The response function that the value of the input is evaluated with.
@@ -37,7 +37,7 @@ class Consideration<ConsiderationIdType> {
 	   @param	input The input.
 	   @param	curve The response curve.
 	**/
-	public function new(id:ConsiderationIdType, name:String, input:Input, response:Response) {
+	public function new(id:ConsiderationIdType, name:String, input:Input<InputIdType>, response:Response) {
 		this.id = id;
 		this.name = name;
 		this.input = input;

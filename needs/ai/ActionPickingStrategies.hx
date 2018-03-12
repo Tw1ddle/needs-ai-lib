@@ -13,11 +13,11 @@ class ActionPickingStrategies {
 	   @param	actionSet The set of actions to choose the most appropriate action from.
 	   @return	The action with the highest utility score and its score.
 	**/
-	public static function highestScoringAction<ActionSetIdType, ActionIdType, ConsiderationIdType>(actionSet:ActionSet<ActionSetIdType, ActionIdType, ConsiderationIdType>):ActionScorePair<ActionIdType, ConsiderationIdType> {
-		var actions:Array<Action<ActionIdType, ConsiderationIdType>> = actionSet.actions;
+	public static function highestScoringAction<ActionSetIdType, ActionIdType, ConsiderationIdType, InputIdType>(actionSet:ActionSet<ActionSetIdType, ActionIdType, ConsiderationIdType, InputIdType>):ActionScorePair<ActionIdType, ConsiderationIdType, InputIdType> {
+		var actions:Array<Action<ActionIdType, ConsiderationIdType, InputIdType>> = actionSet.actions;
 		
 		var maxScore:Float = 0;
-		var action:Action<ActionIdType, ConsiderationIdType> = null;
+		var action:Action<ActionIdType, ConsiderationIdType, InputIdType> = null;
 		var i:Int = 0;
 		while (i < actions.length) {
 			var score = actions[i].score();

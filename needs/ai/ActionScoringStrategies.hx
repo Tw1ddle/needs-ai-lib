@@ -15,8 +15,8 @@ class ActionScoringStrategies {
 	   @param	action The action whose utility will be determined.
 	   @return	The utility of the action.
 	**/
-	public static function multiplyConsiderationScores<ActionIdType, ConsiderationIdType>(action:Action<ActionIdType, ConsiderationIdType>):Float {
-		var considerations:Array<Consideration<ConsiderationIdType>> = action.considerations;
+	public static function multiplyConsiderationScores<ActionIdType, ConsiderationIdType, InputIdType>(action:Action<ActionIdType, ConsiderationIdType, InputIdType>):Float {
+		var considerations:Array<Consideration<ConsiderationIdType, InputIdType>> = action.considerations;
 		
 		if (considerations.length == 0) {
 			return 0.0;
@@ -34,8 +34,8 @@ class ActionScoringStrategies {
 	   @param	action The action whose utility will be determined.
 	   @return	The utility of the action.
 	**/
-	public static function averageSumConsiderationScores<ActionIdType, ConsiderationIdType>(action:Action<ActionIdType, ConsiderationIdType>):Float {
-		var considerations:Array<Consideration<ConsiderationIdType>> = action.considerations;
+	public static function averageSumConsiderationScores<ActionIdType, ConsiderationIdType, InputIdType>(action:Action<ActionIdType, ConsiderationIdType, InputIdType>):Float {
+		var considerations:Array<Consideration<ConsiderationIdType, InputIdType>> = action.considerations;
 		
 		if (considerations.length == 0) {
 			return 0.0;

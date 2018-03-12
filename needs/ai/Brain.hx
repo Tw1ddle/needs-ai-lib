@@ -19,7 +19,7 @@ import needs.util.Signal;
    It encapsulates a collection of Reasoners, which it updates to drive decision-making logic of the agent.
    The Brain broadcasts when the actions its reasoners pick change, which other parts of the codebase e.g. an animation system, can listen to.
 **/
-class Brain<BrainIdType, ReasonerIdType, ActionSetIdType, ActionIdType, ConsiderationIdType> {
+class Brain<BrainIdType, ReasonerIdType, ActionSetIdType, ActionIdType, ConsiderationIdType, InputIdType> {
 	/**
 	   Id for this brain.
 	**/
@@ -30,33 +30,34 @@ class Brain<BrainIdType, ReasonerIdType, ActionSetIdType, ActionIdType, Consider
 	   Using multiple reasoners is useful when you want to easily partition and enable/disable categories decision logic.
 	   For example, an agent might only have the "Tavern" reasoner activated while they are near or inside a tavern.
 	**/
-	private var reasoners:Array<Reasoner<ReasonerIdType, ActionSetIdType, ActionIdType, ConsiderationIdType>>;
+	private var reasoners:Array<Reasoner<ReasonerIdType, ActionSetIdType, ActionIdType, ConsiderationIdType, InputIdType>>;
 	
 	/**
 	   Callback triggered when a reasoner changes the action that it has selected.
 	**/
-	public var onActionChanged(default, null):Signal3<Reasoner<ReasonerIdType, ActionSetIdType, ActionIdType, ConsiderationIdType>, Action<ActionIdType, ConsiderationIdType>, Action<ActionIdType, ConsiderationIdType>>;
+	public var onActionChanged(default, null):Signal3<Reasoner<ReasonerIdType, ActionSetIdType, ActionIdType, ConsiderationIdType, InputIdType>, Action<ActionIdType, ConsiderationIdType, InputIdType>, Action<ActionIdType, ConsiderationIdType, InputIdType>>;
 	
 	/**
 	   Callback triggered when a reasoner is added to the brain.
 	**/
-	public var onReasonerAdded(default, null):Signal2<Brain<BrainIdType, ReasonerIdType, ActionSetIdType, ActionIdType, ConsiderationIdType>, Reasoner<ReasonerIdType, ActionSetIdType, ActionIdType, ConsiderationIdType>>;
+	public var onReasonerAdded(default, null):Signal2<Brain<BrainIdType, ReasonerIdType, ActionSetIdType, ActionIdType, ConsiderationIdType, InputIdType>, Reasoner<ReasonerIdType, ActionSetIdType, ActionIdType, ConsiderationIdType, InputIdType>>;
 	
 	/**
 	   Callback triggered when a reasoner is removed from the brain.
 	**/
-	public var onReasonerRemoved(default, null):Signal2<Brain<BrainIdType, ReasonerIdType, ActionSetIdType, ActionIdType, ConsiderationIdType>, Reasoner<ReasonerIdType, ActionSetIdType, ActionIdType, ConsiderationIdType>>;
+	public var onReasonerRemoved(default, null):Signal2<Brain<BrainIdType, ReasonerIdType, ActionSetIdType, ActionIdType, ConsiderationIdType, InputIdType>, Reasoner<ReasonerIdType, ActionSetIdType, ActionIdType, ConsiderationIdType, InputIdType>>;
 	
 	/**
 	   @param	reasoners The collection of reasoners that the brain starts with.
 	**/
-	public function new(id:BrainIdType, reasoners:Array<Reasoner<ReasonerIdType, ActionSetIdType, ActionIdType, ConsiderationIdType>>) {
+	public function new(id:BrainIdType, reasoners:Array<Reasoner<ReasonerIdType, ActionSetIdType, ActionIdType, ConsiderationIdType, InputIdType>>) {
 		this.id = id;
 		
-		onActionChanged = new Signal3<Reasoner<ReasonerIdType, ActionSetIdType, ActionIdType, ConsiderationIdType>, Action<ActionIdType, ConsiderationIdType>, Action<ActionIdType, ConsiderationIdType>>();
-		onReasonerAdded = new Signal2<Brain<BrainIdType, ReasonerIdType, ActionSetIdType, ActionIdType, ConsiderationIdType>, Reasoner<ReasonerIdType, ActionSetIdType, ActionIdType, ConsiderationIdType>>();
-		onReasonerRemoved = new Signal2<Brain<BrainIdType, ReasonerIdType, ActionSetIdType, ActionIdType, ConsiderationIdType>, Reasoner<ReasonerIdType, ActionSetIdType, ActionIdType, ConsiderationIdType>>();
+		onActionChanged = new Signal3<Reasoner<ReasonerIdType, ActionSetIdType, ActionIdType, ConsiderationIdType, InputIdType>, Action<ActionIdType, ConsiderationIdType, InputIdType>, Action<ActionIdType, ConsiderationIdType, InputIdType>>();
+		onReasonerAdded = new Signal2<Brain<BrainIdType, ReasonerIdType, ActionSetIdType, ActionIdType, ConsiderationIdType, InputIdType>, Reasoner<ReasonerIdType, ActionSetIdType, ActionIdType, ConsiderationIdType, InputIdType>>();
+		onReasonerRemoved = new Signal2<Brain<BrainIdType, ReasonerIdType, ActionSetIdType, ActionIdType, ConsiderationIdType, InputIdType>, Reasoner<ReasonerIdType, ActionSetIdType, ActionIdType, ConsiderationIdType, InputIdType>>();
 		
+		reasoners = [];
 		for (reasoner in reasoners) {
 			addReasoner(reasoner);
 		}
@@ -75,7 +76,7 @@ class Brain<BrainIdType, ReasonerIdType, ActionSetIdType, ActionIdType, Consider
 	   Adds a reasoner to the brain.
 	   @param	reasoner The reasoner to add.
 	**/
-	public function addReasoner(reasoner:Reasoner<ReasonerIdType, ActionSetIdType, ActionIdType, ConsiderationIdType>):Void {
+	public function addReasoner(reasoner:Reasoner<ReasonerIdType, ActionSetIdType, ActionIdType, ConsiderationIdType, InputIdType>):Void {
 		reasoners.push(reasoner);
 		reasoner.onActionChanged = onActionChanged;
 		onReasonerAdded.dispatch(this, reasoner);
@@ -85,7 +86,7 @@ class Brain<BrainIdType, ReasonerIdType, ActionSetIdType, ActionIdType, Consider
 	   Removes a reasoner from the brain, if it is present in the brain.
 	   @param	reasoner The reasoner to remove.
 	**/
-	public function removeReasoner(reasoner:Reasoner<ReasonerIdType, ActionSetIdType, ActionIdType, ConsiderationIdType>):Void {
+	public function removeReasoner(reasoner:Reasoner<ReasonerIdType, ActionSetIdType, ActionIdType, ConsiderationIdType, InputIdType>):Void {
 		reasoners.remove(reasoner);
 		reasoner.onActionChanged = null;
 		onReasonerRemoved.dispatch(this, reasoner);

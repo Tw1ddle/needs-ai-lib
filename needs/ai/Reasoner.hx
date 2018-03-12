@@ -10,7 +10,7 @@ import needs.util.Signal;
    The Reasoner class encapsulates sets of actions available to an agent. It exposes a technique for
    selecting the best available Action from a collection of ActionSets. It emits a signal when the Action it selects changes.
 **/
-class Reasoner<ReasonerIdType, ActionSetIdType, ActionIdType, ConsiderationIdType> {
+class Reasoner<ReasonerIdType, ActionSetIdType, ActionIdType, ConsiderationIdType, InputIdType> {
 	/**
 	   Id for this reasoner.
 	**/
@@ -25,35 +25,35 @@ class Reasoner<ReasonerIdType, ActionSetIdType, ActionIdType, ConsiderationIdTyp
 	/**
 	   The sets of actions available to the reasoner.
 	**/
-	public var actionSets(default, null):Array<ActionSet<ActionSetIdType, ActionIdType, ConsiderationIdType>>;
+	public var actionSets(default, null):Array<ActionSet<ActionSetIdType, ActionIdType, ConsiderationIdType, InputIdType>>;
 	
 	/**
 	   The last action the reasoner selected.
 	**/
-	public var lastAction(default, null):Action<ActionIdType, ConsiderationIdType>;
+	public var lastAction(default, null):Action<ActionIdType, ConsiderationIdType, InputIdType>;
 	
 	/**
 	   Signal emitted when the action selected by the reasoner changes.
 	**/
-	public var onActionChanged:Signal3<Reasoner<ReasonerIdType, ActionSetIdType, ActionIdType, ConsiderationIdType>, Action<ActionIdType, ConsiderationIdType>, Action<ActionIdType, ConsiderationIdType>>;
+	public var onActionChanged:Signal3<Reasoner<ReasonerIdType, ActionSetIdType, ActionIdType, ConsiderationIdType, InputIdType>, Action<ActionIdType, ConsiderationIdType, InputIdType>, Action<ActionIdType, ConsiderationIdType, InputIdType>>;
 	
 	/**
 	   Returns the most appropriate action in the set by evaluating the actions using the reasoner's action picking strategy.
 	   @return The the most appropriate action in the set and its score.
 	**/
-	public var select:Void->ActionScorePair<ActionIdType, ConsiderationIdType>;
+	public var select:Void->ActionScorePair<ActionIdType, ConsiderationIdType, InputIdType>;
 	
 	/**
 	   @param	id Id for this reasoner.
 	   @param	name The human-readable name of the reasoner.
 	   @param	actionSets The collection of action sets that the reasoner starts with.
 	**/
-	public function new(id:ReasonerIdType, name:String, actionSets:Array<ActionSet<ActionSetIdType, ActionIdType, ConsiderationIdType>>) {
+	public function new(id:ReasonerIdType, name:String, actionSets:Array<ActionSet<ActionSetIdType, ActionIdType, ConsiderationIdType, InputIdType>>) {
 		this.id = id;
 		this.name = name;
 		this.actionSets = actionSets;
 		lastAction = null;
-		onActionChanged = new Signal3<Reasoner<ReasonerIdType, ActionSetIdType, ActionIdType, ConsiderationIdType>, Action<ActionIdType, ConsiderationIdType>, Action<ActionIdType, ConsiderationIdType>>();
+		onActionChanged = new Signal3<Reasoner<ReasonerIdType, ActionSetIdType, ActionIdType, ConsiderationIdType, InputIdType>, Action<ActionIdType, ConsiderationIdType, InputIdType>, Action<ActionIdType, ConsiderationIdType, InputIdType>>();
 		select = ReasonerActionPickingStrategies.highestScoringAction.bind(this);
 	}
 }
