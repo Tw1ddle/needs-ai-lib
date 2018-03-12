@@ -5,14 +5,11 @@
 
 WORK IN PROGRESS
 
-Needs AI is a utility based AI library written in Haxe. Run the demo [here](https://tw1ddle.github.io/needs-ai/index.html). Read the documentation [here](http://tw1ddle.github.io/needs-ai-lib/index.html).
-
-Utility based AI is useful for games where agents have to satisfy several competing needs. The utility AI weighs up a number of aspects of the game world an agent cares about,
-producing a normalized utility score for each action that each agent. Sets of similar actions are compared and the best action is chosen.
+Needs AI is a utility-=based AI library written in Haxe. Run the demo [here](https://tw1ddle.github.io/needs-ai/index.html). Read the documentation [here](http://tw1ddle.github.io/needs-ai-lib/index.html).
 
 # Features
- * Response curves - linear, polynomial, sine, normal, logit, logistic and more.
- * Highly configurable - easily add and customize your own response curves, consideration/action/action set scoring strategies.
+ * Response curves. Linear, polynomial, sine, normal, logit, logistic and more.
+ * Customize your own response curves, consideration/action/action set scoring strategies.
 
 # Usage
 See the [demo code](https://github.com/Tw1ddle/needs-ai) for a usage example. The overall design is as follows: agents take cues from their ''Brain''s, whose ''Reasoners''

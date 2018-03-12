@@ -4,7 +4,12 @@ package needs.ai;
    The Action class represents an action that an agent has the option of intending/attempting to perform within the game world.
    It encapsulates a collection of Considerations that are evaluated using a scoring function to calculate an overall utility score for the Action.
 **/
-class Action {
+class Action<ActionIdType, ConsiderationIdType> {
+	/**
+	   Id for this action.
+	**/
+	public var id(default, null):ActionIdType;
+	
 	/**
 	   Human-readable name of the action.
 	   For an NPC-eating werewolf in a park, available Actions might be called "Eat NPC" and "Hide In Bush".
@@ -14,13 +19,15 @@ class Action {
 	/**
 	   Collection of considerations that are evaluated to calculate an overall utility score for the action.
 	**/
-	public var considerations(default, null):Array<Consideration>;
+	public var considerations(default, null):Array<Consideration<ConsiderationIdType>>;
 	
 	/**
+	   @param	id Id for this action.
 	   @param	name The human-readable name of the action.
 	   @param	considerations The collection of considerations that the action starts with.
 	**/
-	public function new(name:String, considerations:Array<Consideration>) {
+	public function new(id:ActionIdType, name:String, considerations:Array<Consideration<ConsiderationIdType>>) {
+		this.id = id;
 		this.name = name;
 		this.considerations = considerations;
 		

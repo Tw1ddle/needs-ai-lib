@@ -8,7 +8,12 @@ import needs.responses.Response;
    A consideration produces the utility score by evaluating (or appraising) an Input - an aspect of the world the agent is interested in - against a response curve.
    This result is typically a floating point value, which is later used for calculating the overall utility of an Action available to the agent.
 **/
-class Consideration {
+class Consideration<ConsiderationIdType> {
+	/**
+	   Id for this consideration.
+	**/
+	public var id(default, null):ConsiderationIdType;
+	
 	/**
 	   Human-readable name of the consideration.
 	   For an NPC-eating werewolf hiding behind a park bench, considerations for an Option like "Eat NPC" could have names like "Hunger", "Crowdedness", "My Health" etc.
@@ -27,11 +32,13 @@ class Consideration {
 	public var response:Response;
 	
 	/**
+	   @param	id Id for this consideration.
 	   @param	name The human-readable name for the consideration.
 	   @param	input The input.
 	   @param	curve The response curve.
 	**/
-	public function new(name:String, input:Input, response:Response) {
+	public function new(id:ConsiderationIdType, name:String, input:Input, response:Response) {
+		this.id = id;
 		this.name = name;
 		this.input = input;
 		this.response = response;

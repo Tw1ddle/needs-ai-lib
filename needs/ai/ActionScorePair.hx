@@ -1,6 +1,8 @@
 package needs.ai;
 
-typedef ActionScorePair = {
-	action:Action,
+import needs.ai.Action;
+
+typedef ActionScorePair<ActionIdType, ConsiderationIdType> = {
+	action:Action<ActionIdType, ConsiderationIdType>,
 	score:Float
 };

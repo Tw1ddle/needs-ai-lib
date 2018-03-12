@@ -1,5 +1,8 @@
 package needs.ai;
 
+import needs.ai.Action;
+import needs.ai.Consideration;
+
 /**
    The ActionScoringStrategies class contains boilerplate methods for determining the utility of an Action.
    These scoring strategies combine the scores of individual Considerations to determine the total utility of an Action.
@@ -12,8 +15,8 @@ class ActionScoringStrategies {
 	   @param	action The action whose utility will be determined.
 	   @return	The utility of the action.
 	**/
-	public static function multiplyConsiderationScores(action:Action):Float {
-		var considerations:Array<Consideration> = action.considerations;
+	public static function multiplyConsiderationScores<ActionIdType, ConsiderationIdType>(action:Action<ActionIdType, ConsiderationIdType>):Float {
+		var considerations:Array<Consideration<ConsiderationIdType>> = action.considerations;
 		
 		if (considerations.length == 0) {
 			return 0.0;
@@ -31,8 +34,8 @@ class ActionScoringStrategies {
 	   @param	action The action whose utility will be determined.
 	   @return	The utility of the action.
 	**/
-	public static function averageSumConsiderationScores(action:Action):Float {
-		var considerations:Array<Consideration> = action.considerations;
+	public static function averageSumConsiderationScores<ActionIdType, ConsiderationIdType>(action:Action<ActionIdType, ConsiderationIdType>):Float {
+		var considerations:Array<Consideration<ConsiderationIdType>> = action.considerations;
 		
 		if (considerations.length == 0) {
 			return 0.0;
