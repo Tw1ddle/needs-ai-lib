@@ -11,7 +11,6 @@ import needs.ai.Reasoner;
 import needs.ai.ReasonerActionPickingStrategies;
 import needs.ai.WatchedBrain;
 import needs.inputs.Input;
-import needs.inputs.DistanceInput;
 import needs.responses.Linear;
 import needs.responses.Logistic;
 import needs.responses.Logit;
