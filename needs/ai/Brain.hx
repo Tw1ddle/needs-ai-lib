@@ -57,7 +57,7 @@ class Brain<BrainIdType, ReasonerIdType, ActionSetIdType, ActionIdType, Consider
 		onReasonerAdded = new Signal2<Brain<BrainIdType, ReasonerIdType, ActionSetIdType, ActionIdType, ConsiderationIdType, InputIdType>, Reasoner<ReasonerIdType, ActionSetIdType, ActionIdType, ConsiderationIdType, InputIdType>>();
 		onReasonerRemoved = new Signal2<Brain<BrainIdType, ReasonerIdType, ActionSetIdType, ActionIdType, ConsiderationIdType, InputIdType>, Reasoner<ReasonerIdType, ActionSetIdType, ActionIdType, ConsiderationIdType, InputIdType>>();
 		
-		reasoners = [];
+		this.reasoners = [];
 		for (reasoner in reasoners) {
 			addReasoner(reasoner);
 		}

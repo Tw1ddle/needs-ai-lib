@@ -5,7 +5,7 @@
 
 WORK IN PROGRESS
 
-Needs AI is a utility-=based AI library written in Haxe. Run the demo [here](https://tw1ddle.github.io/needs-ai/index.html). Read the documentation [here](http://tw1ddle.github.io/needs-ai-lib/index.html).
+Needs AI is a utility-based AI library written in Haxe. Run the demo [here](https://tw1ddle.github.io/needs-ai/index.html). Read the documentation [here](http://tw1ddle.github.io/needs-ai-lib/index.html).
 
 # Features
  * Response curves. Linear, polynomial, sine, normal, logit, logistic and more.
