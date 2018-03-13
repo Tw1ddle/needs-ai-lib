@@ -22,7 +22,7 @@ class Consideration<ConsiderationIdType, InputIdType> {
 	
 	/**
 	   The aspect of the world that the AI agent is interested in with respect to this consideration.
-	   If the consideration is "fear of wolves", the input might evaluate to "number of wolves nearby, normalized in range 0-1".
+	   If the consideration is "fear of wolves", the input might evaluate to "number of wolves nearby, scaled and normalized in range 0-1".
 	**/
 	public var input:Input<InputIdType>;
 	
@@ -35,7 +35,7 @@ class Consideration<ConsiderationIdType, InputIdType> {
 	   @param	id Id for this consideration.
 	   @param	name The human-readable name for the consideration.
 	   @param	input The input.
-	   @param	curve The response curve.
+	   @param	response The response curve.
 	**/
 	public function new(id:ConsiderationIdType, name:String, input:Input<InputIdType>, response:Response) {
 		this.id = id;
