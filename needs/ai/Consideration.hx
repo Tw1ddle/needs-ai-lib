@@ -21,7 +21,7 @@ class Consideration<ConsiderationIdType, InputIdType> {
 	public var name(default, null):String;
 	
 	/**
-	   The aspect of the world that the AI agent is interested in with respect to this consideration.
+	   The aspect of the world that the agent is interested in with respect to this consideration.
 	   If the consideration is "fear of wolves", the input might evaluate to "number of wolves nearby, scaled and normalized in range 0-1".
 	**/
 	public var input:Input<InputIdType>;

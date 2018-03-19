@@ -8,7 +8,7 @@ import needs.ai.ActionScorePair;
 **/
 class ActionPickingStrategies {
 	/**
-	   Determines the most appropriate Action from a set of actions by picking the action with the highest utility score.
+	   Determines the most appropriate action from a set of actions by picking the action with the highest utility score.
 	   Returns null if no actions are in the set, or if the only available actions have a negative score.
 	   @param	actionSet The set of actions to choose the most appropriate action from.
 	   @return	The action with the highest utility score and its score.

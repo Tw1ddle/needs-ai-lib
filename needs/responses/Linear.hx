@@ -17,6 +17,6 @@ class Linear {
 	}
 	
 	private static inline function response(m:Float, c:Float, x:Float):Float {
-		return MathUtil.clamp(m * x + c, 0, 1);
+		return MathUtil.clamp(m * x + c);
 	}
 }

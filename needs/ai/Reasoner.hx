@@ -4,8 +4,6 @@ import needs.ai.Action;
 import needs.ai.ReasonerActionPickingStrategies;
 import needs.util.Signal;
 
-// TODO considerations/reasoner selection to have optional random noise option to ensure we don't always choose the same thing (easily vetoable to disable)
-
 /**
    The Reasoner class encapsulates sets of actions available to an agent. It exposes a technique for
    selecting the best available Action from a collection of ActionSets. It emits a signal when the Action it selects changes.

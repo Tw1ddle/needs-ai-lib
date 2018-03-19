@@ -9,7 +9,7 @@ import needs.ai.Consideration;
 **/
 class ActionScoringStrategies {
 	/**
-	   Determines the utility of an Action by multiplying the scores of the considerations.
+	   Determines the utility of an action by multiplying the scores of the considerations.
 	   Note that this exhibits odd behavior because actions with more considerations will tend to have lower scores
 	   due to normalized multiplication e.g. (0.9 * 0.9 is less than 0.9 * 0.9 * 0.9).
 	   @param	action The action whose utility will be determined.
@@ -30,7 +30,7 @@ class ActionScoringStrategies {
 	}
 	
 	/**
-	   Determines the utility of an Action by taking the mean score of the considerations.
+	   Determines the utility of an action by taking the mean score of the considerations.
 	   @param	action The action whose utility will be determined.
 	   @return	The utility of the action.
 	**/

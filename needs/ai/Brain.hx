@@ -7,13 +7,6 @@ import needs.util.Signal;
 // TODO tag bag/blackboard objects (variant maps, lots of ids?), for negotiating "bonus" utility for some actions e.g. for two specific npcs needing to talk to each other
 // just used as token passing. perhaps something a "smart" environment does to the NPCs, not the NPCs themselves
 
-// TODO figure out how to make a configuration of the brain completely data driven using macros - possibly a way to serialize/unserialize the state of the brain (i.e. the brain is the project file)
-// TODO have some sort of loadProject method that builds a pre-populated manager with behavior sets created using an XML knowledge base etc
-
-// TODO solve inertia problem with cooldowns/momentum so agents don't repeat tasks e.g. eat pizza 10 times in row, probably by making it possible to weight intents against repeats (in a arbitrary way)
-
-// TODO add macro that can add metadata to label all classes with info so that checking is easier in game code?
-
 /**
    The Brain class represents the top-level reasoning element of your utility-based AI agent.
    It encapsulates a collection of Reasoners, which it updates to drive decision-making logic of the agent.
