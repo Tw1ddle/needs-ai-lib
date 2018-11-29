@@ -7,5 +7,19 @@ class WatchedBrain<BrainIdType, ReasonerIdType, ActionSetIdType, ActionIdType, C
 extends Brain<BrainIdType, ReasonerIdType, ActionSetIdType, ActionIdType, ConsiderationIdType, InputIdType> {
 	public function new(id:BrainIdType, reasoners:Array<Reasoner<ReasonerIdType, ActionSetIdType, ActionIdType, ConsiderationIdType, InputIdType>>) {
 		super(id, reasoners);
+		
+		onActionChanged(default, null):Signal3<Reasoner<ReasonerIdType, ActionSetIdType, ActionIdType, ConsiderationIdType, InputIdType>, Action<ActionIdType, ConsiderationIdType, InputIdType>, Action<ActionIdType, ConsiderationIdType, InputIdType>>;
+		
+		onActionChanged.add((reasoner, lastAction, newAction)-> {
+			trace("Action changed on reasoner: " + reasoner + " from " + lastAction + " to " + newAction);
+		});
+	
+		onReasonerAdded.add((brain, reasoner)->{
+			trace("Added reasoner: " + reasoner + " to brain: " + brain);
+		});
+	
+		onReasonerRemoved.add((brain, reasoner)->{
+			trace("Removed reasoner: " + reasoner + " from brain: " + brain);
+		});
 	}
 }
