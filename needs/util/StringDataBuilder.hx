@@ -42,7 +42,7 @@ class StringDataBuilder {
 					throw "Training data files must have alphanumeric names";
 				}
 				
-				var words = splitter.split(data);
+				var words = splitter.split(data).filter(function(s:String) { return (s != "\r" && s != "\n" && s != "\r\n" && s != ""); });
 
 				var field = {
 					name: name,

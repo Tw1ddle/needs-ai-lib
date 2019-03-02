@@ -3,6 +3,7 @@ package needs.ai;
 import needs.ai.Action;
 import needs.ai.ReasonerActionPickingStrategies;
 import needs.util.Signal;
+import needs.util.InstanceId;
 
 /**
    The Reasoner class encapsulates sets of actions available to an agent. It exposes a technique for
@@ -10,36 +11,47 @@ import needs.util.Signal;
 **/
 class Reasoner<ReasonerIdType, ActionSetIdType, ActionIdType, ConsiderationIdType, InputIdType> {
 	/**
+	   Id for this object.
+	 */
+	public var instanceId(default, null):Int = InstanceId.makeId();
+	
+	/**
 	   Id for this reasoner.
 	**/
-	public var id(default, null):ReasonerIdType;
+	public var id(default, null):ReasonerIdType = null;
 	
 	/**
 	   Human-readable name of the reasoner.
 	   Reasoners for an agent like a hungry NPC-eating werewolf might be named for context-specific sets of actions they encapsulate e.g. "Wilderness Action Sets", "Town Action Sets" etc.
 	**/
-	public var name(default, null):String;
+	public var name(default, null):String = "";
 	
 	/**
 	   The sets of actions available to the reasoner.
 	**/
-	public var actionSets(default, null):Array<ActionSet<ActionSetIdType, ActionIdType, ConsiderationIdType, InputIdType>>;
-	
-	/**
-	   The last action the reasoner selected.
-	**/
-	public var lastAction(default, null):Action<ActionIdType, ConsiderationIdType, InputIdType>;
+	public var actionSets(default, null):Array<ActionSet<ActionSetIdType, ActionIdType, ConsiderationIdType, InputIdType>> = null;
 	
 	/**
 	   Signal emitted when the action selected by the reasoner changes.
 	**/
-	public var onActionChanged:Signal3<Reasoner<ReasonerIdType, ActionSetIdType, ActionIdType, ConsiderationIdType, InputIdType>, Action<ActionIdType, ConsiderationIdType, InputIdType>, Action<ActionIdType, ConsiderationIdType, InputIdType>>;
+	public var onActionChanged:Signal3<Reasoner<ReasonerIdType, ActionSetIdType, ActionIdType, ConsiderationIdType, InputIdType>, Action<ActionIdType, ConsiderationIdType, InputIdType>, Action<ActionIdType, ConsiderationIdType, InputIdType>> = null;
 	
 	/**
-	   Returns the most appropriate action in the set by evaluating the actions using the reasoner's action picking strategy.
-	   @return The the most appropriate action in the set and its score.
+	   The last action the reasoner selected.
 	**/
-	public var select:Void->ActionScorePair<ActionIdType, ConsiderationIdType, InputIdType>;
+	public var lastAction(default, set):Action<ActionIdType, ConsiderationIdType, InputIdType> = null;
+	
+	/**
+	   Returns the action sets sorted by their appropriateness by evaluating the sets using the reasoner's action set picking strategy.
+	   @return The most appropriate action sets and their scores.
+	*/
+	public var selectActionSet:Void->Array<ActionSetScorePair<ActionSetIdType, ActionIdType, ConsiderationIdType, InputIdType>> = null;
+	
+	/**
+	   Returns the most appropriate action from the sets by evaluating the actions using the reasoner's action picking strategy.
+	   @return The most appropriate action in the set and its score.
+	**/
+	public var selectAction:Void->ActionScorePair<ActionIdType, ConsiderationIdType, InputIdType> = null;
 	
 	/**
 	   @param	id Id for this reasoner.
@@ -50,8 +62,33 @@ class Reasoner<ReasonerIdType, ActionSetIdType, ActionIdType, ConsiderationIdTyp
 		this.id = id;
 		this.name = name;
 		this.actionSets = actionSets;
-		lastAction = null;
 		onActionChanged = new Signal3<Reasoner<ReasonerIdType, ActionSetIdType, ActionIdType, ConsiderationIdType, InputIdType>, Action<ActionIdType, ConsiderationIdType, InputIdType>, Action<ActionIdType, ConsiderationIdType, InputIdType>>();
-		select = ReasonerActionPickingStrategies.highestScoringAction.bind(this);
+		lastAction = null;
+		selectActionSet = ActionSetScoringStrategies.passthroughScoringStrategy.bind(this);
+		selectAction = ReasonerActionPickingStrategies.highestScoringAction.bind(this);
+	}
+	
+	/**
+	   Triggers when the last action is set on the reasoner.
+	 */
+	private function set_lastAction(action:Action<ActionIdType, ConsiderationIdType, InputIdType>):Action<ActionIdType, ConsiderationIdType, InputIdType> {
+		var last = lastAction;
+		lastAction = action;
+		
+		if (action == null && last == null) {
+			return action;
+		}
+		
+		if ((action == null && last != null) || (action != null && last == null)) {
+			onActionChanged.dispatch(this, last, action);
+			return action;
+		}
+		
+		if (last.id != action.id) {
+			onActionChanged.dispatch(this, last, action);
+			return action;
+		}
+		
+		return action;
 	}
 }

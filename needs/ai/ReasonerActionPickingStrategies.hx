@@ -10,7 +10,7 @@ import needs.ai.Reasoner;
 **/
 class ReasonerActionPickingStrategies {
 	/**
-	   Selects the best ation for a reasoner by picking the one with the highest utility score.
+	   Selects the best action for a reasoner by picking the one with the highest utility score.
 	   @param	reasoner The reasoner whose action sets will be picked from.
 	   @return	The action with the highest utility score and the score itself.
 	**/
@@ -27,5 +27,26 @@ class ReasonerActionPickingStrategies {
 			i++;
 		}
 		return maxPair;
+	}
+	
+	/**
+	    Selects the best action for a reasoner by picking the preferred action set, and then choosing at random from the actions in the set.
+	    @param	reasoner The reasoner whose action sets will be picked from.
+	    @return	The action randomly chosen from the preferred action set, and a score of 0.
+	 */
+	public static function randomInPreferredActionSet<ReasonerIdType, ActionSetIdType, ActionIdType, ConsiderationIdType, InputIdType>(reasoner:Reasoner<ReasonerIdType, ActionSetIdType, ActionIdType, ConsiderationIdType, InputIdType>):ActionScorePair<ActionIdType, ConsiderationIdType, InputIdType> {
+		var actionSets = reasoner.selectActionSet();
+		
+		if (actionSets.length == 0) {
+			return { action: null, score: 0 };
+		}
+		
+		if (actionSets[0].actionSet.actions.length == 0) {
+			return { action: null, score: 0 };
+		}
+		
+		var action = actionSets[0].actionSet.actions[Std.int((actionSets[0].actionSet.actions.length - 1) * Math.random())];
+		
+		return { action: action, score: 0 };
 	}
 }

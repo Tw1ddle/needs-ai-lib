@@ -2,6 +2,7 @@ package needs.ai;
 
 import needs.inputs.Input;
 import needs.responses.Response;
+import needs.util.InstanceId;
 
 /**
    The Consideration class transforms an observation about the game world that your agent cares about into a utility score.
@@ -10,26 +11,31 @@ import needs.responses.Response;
 **/
 class Consideration<ConsiderationIdType, InputIdType> {
 	/**
+	   Id for this object.
+	 */
+	public var instanceId(default, null):Int = InstanceId.makeId();
+	
+	/**
 	   Id for this consideration.
 	**/
-	public var id(default, null):ConsiderationIdType;
+	public var id(default, null):ConsiderationIdType = null;
 	
 	/**
 	   Human-readable name of the consideration.
 	   For an NPC-eating werewolf hiding behind a park bench, considerations for an Option like "Eat NPC" could have names like "Hunger", "Crowdedness", "My Health" etc.
 	**/
-	public var name(default, null):String;
+	public var name(default, null):String = "";
 	
 	/**
 	   The aspect of the world that the agent is interested in with respect to this consideration.
 	   If the consideration is "fear of wolves", the input might evaluate to "number of wolves nearby, scaled and normalized in range 0-1".
 	**/
-	public var input:Input<InputIdType>;
+	public var input:Input<InputIdType> = null;
 	
 	/**
 	   The response function that the value of the input is evaluated with.
 	**/
-	public var response:Response;
+	public var response:Response = null;
 	
 	/**
 	   @param	id Id for this consideration.

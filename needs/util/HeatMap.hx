@@ -1,12 +1,18 @@
 package needs.util;
 
 import haxe.io.UInt8Array;
+import needs.util.InstanceId;
 
 /**
     Grid of unsigned 8-bit values.
  */
 class HeatMap 
 {
+	/**
+	   Id for this object.
+	 */
+	public var instanceId(default, null):Int = InstanceId.makeId();
+	
 	private var data:UInt8Array;
 	public var width(default, null):Int;
 	public var height(default, null):Int;

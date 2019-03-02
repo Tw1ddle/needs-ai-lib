@@ -1,16 +1,22 @@
 package needs.inputs;
 
 import needs.responses.Response;
+import needs.util.InstanceId;
 
 /**
    Interface for an Input. An Input represents an aspect of the game world the agent is interested in.
    An Input is evaluated against a response curve to produce the utility score for a consideration.
 **/
-interface Input<InputIdType> {
+class Input<InputIdType> {
+	/**
+	   Id for this object.
+	 */
+	public var instanceId(default, null):Int = InstanceId.makeId();
+	
 	/**
 	   Id for this input.
 	**/
-	public var id(default, null):InputIdType;
+	public var id(default, null):InputIdType = null;
 	
 	/**
 	   Evaluates (appraises) an aspect of the game world against a response function, producing a utility score. Typically you will normalize this value into the range 0-1.
@@ -18,5 +24,7 @@ interface Input<InputIdType> {
 	   @param	response The response function you should evaluate your normalized input against.
 	   @return	A floating point utility score, typically in the range 0-1.
 	**/
-	function evaluate(response:Response):Float;
+	public function evaluate(response:Response):Float {
+		return 0.0;
+	}
 }
